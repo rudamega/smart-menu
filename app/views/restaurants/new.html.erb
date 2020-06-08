@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h3>Create new - Restaurant</h3>
+    <%= simple_form_for(@restaurant) do |t| %>
+      <%= t.input :name, input_html: { id: "input-typed-text"}%>
+      <%= t.input :address%>
+      <%= t.input :phone%>
+      <%= t.input :email%>
+      <%# como pasar o array de categorias? %>
+      <%= t.input :category%> 
+      <%= t.submit%>
+    <% end %>
+    <%= link_to 'Back', my_restaurant_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

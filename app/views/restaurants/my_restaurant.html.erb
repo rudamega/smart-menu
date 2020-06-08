@@ -1,0 +1,8 @@
+<h1>My Restaurant Page</h1>
+<div>
+  <% @restaurants.each do |restaurant| %>
+    <%= restaurant.name %>
+  <% end %>
+</div>
+
+<div><%= link_to 'Create a new restaurant', new_restaurant_path, class: "btn btn-outline-primary" %></div>
