@@ -15,23 +15,7 @@
     </tr>
   </tbody>
 </table>
-<h2>Menu Itens</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Item Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @restaurant.name %></td>
-      <td><%= @restaurant.address %></td>
-      <td><%= @restaurant.phone %></td>
-    </tr>
-  </tbody>
-</table>
+
 <div>
   <%= render 'items/index', items: @restaurant.items %>
 </div>

@@ -1,5 +1,14 @@
-<ul>
+<h2>Menu Itens</h2>
+
+<div class="cards">
 <%items.each do |item| %>
-  <li><%= item.name %></li><%= link_to 'Add to cart', '#', class: "btn btn-outline-secondary" %>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= item.name %></h2>
+      <p><%= item.description %></p>
+      <p><%= item.price %></p>
+    </div>
+  </div>
 <% end %>
-</ul>
+</div>
