@@ -1,8 +1,30 @@
-<h1>My Restaurant Page</h1>
-<div>
-  <% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
-  <% end %>
-</div>
 
-<div> <%= link_to 'Create a new restaurant', new_restaurant_path, class: "btn btn-outline-primary" %></div>
+
+<div><%= link_to 'Create a new restaurant', new_restaurant_path, class: "btn btn-outline-primary" %></div>
+  <h1>My Restaurant</h1>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">See Details</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @restaurants.each do |restaurant| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= restaurant.name %></td>
+      <td><%= restaurant.address %></td>
+      <td><%= restaurant.phone %></td>
+      <td><%= link_to "Details", restaurant_path(restaurant), class: "btn btn-outline-secondary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+
+<%= link_to 'Back', restaurants_path, class: "btn btn-outline-secondary" %>
+
