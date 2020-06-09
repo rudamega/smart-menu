@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show, :new, :create]
     resources :places
   end
+
+  resources :carts do
+    resources :cart_items
+  end
+
   devise_for :users
   root to: 'pages#home'
   get 'my_restaurant', to: 'restaurants#my_restaurant'
