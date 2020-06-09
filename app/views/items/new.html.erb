@@ -1,2 +1,15 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h3>Create new - Items</h3>
+    <%= simple_form_for [@restaurant, @item] do |t| %>
+      <%= t.input :name%>
+      <%= t.input :description%>
+      <%= t.input :category%>
+      <%= t.input :price, label: "How many pts?", placeholder: " Ex: 50"%>
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= t.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload an item' %>
+      <%= t.submit%>
+    <% end %>
+    <%= link_to 'Back', restaurant_path(@restaurant), class: "btn btn-outline-secondary" %>
+  </div>
+</div>
