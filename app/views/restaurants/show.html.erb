@@ -3,4 +3,4 @@
   <%= render 'items/index', items: @restaurant.items %>
 </div>
 <%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
-<%= link_to 'Back', restaurants_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'Back', :back, class: "btn btn-outline-secondary" %>
