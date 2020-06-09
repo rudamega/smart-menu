@@ -5,7 +5,7 @@
       <%= t.input :name%>
       <%= t.input :description%>
       <%= t.input :category%>
-      <%= t.input :price, label: "How many pts?", placeholder: " Ex: 50"%>
+      <%= t.input :price, label: "How much?", placeholder: " Ex: 50.00"%>
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       <%= t.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload an item' %>
       <%= t.submit%>

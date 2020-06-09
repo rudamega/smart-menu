@@ -1,6 +1,5 @@
-<%=items.length %>
 <ul>
 <%items.each do |item| %>
-  <li><%= item.name %></li>
+  <li><%= item.name %></li><%= link_to 'Add to cart', '#', class: "btn btn-outline-secondary" %>
 <% end %>
 </ul>

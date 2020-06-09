@@ -3,6 +3,12 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show, :new, :create]
     resources :places
   end
+
+  resources :carts do
+    #TO DO : update this list so we can update the quantity of items within our cart
+    resources :cart_items, only: [:index, :new, :create, :destroy]
+  end
+
   devise_for :users
   root to: 'pages#home'
   get 'my_restaurant', to: 'restaurants#my_restaurant'
