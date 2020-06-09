@@ -1,3 +1,7 @@
 <h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
-
+<div class="body-geral">
+  <%@restaurants.each do |restaurant| %>
+  <%= link_to restaurant.name, restaurant_path(restaurant), class:'list-group-item list-group-item-action'%>
+  <% end %>
+</div>
+  <%= link_to "Create New restaurants", new_restaurant_path %>

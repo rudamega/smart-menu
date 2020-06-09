@@ -1,2 +1,9 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="show-container">
+  <div class="show-container-inside text-center">
+    <h1><%= @restaurant.name %></h1>
+    <h1><%= @restaurant.address %></h1>
+  </div>
+  <%= render 'items/index', items: @restaurant.items %>
+</div>
+<%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
+<%= link_to 'Back', restaurants_path, class: "btn btn-outline-secondary" %>

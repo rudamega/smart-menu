@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :restaurants do
-    resources :items
+    resources :items, only: [:index, :show, :new, :create]
     resources :places
   end
-
   devise_for :users
   root to: 'pages#home'
   get 'my_restaurant', to: 'restaurants#my_restaurant'

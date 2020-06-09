@@ -7,7 +7,7 @@
       <%= t.input :phone%>
       <%= t.input :email%>
       <%# como pasar o array de categorias? %>
-      <%= t.input :category%> 
+      <%= t.input :category, collection: ["chinese", "brasilian"]%>
       <%= t.submit%>
     <% end %>
     <%= link_to 'Back', my_restaurant_path, class: "btn btn-outline-secondary" %>
