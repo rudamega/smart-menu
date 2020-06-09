@@ -1,24 +1,6 @@
-<h2>Restaurant Details</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @restaurant.name %></td>
-      <td><%= @restaurant.address %></td>
-      <td><%= @restaurant.phone %></td>
-    </tr>
-  </tbody>
-</table>
-
+<div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
 <div>
   <%= render 'items/index', items: @restaurant.items %>
 </div>
 <%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
 <%= link_to 'Back', restaurants_path, class: "btn btn-outline-secondary" %>
-

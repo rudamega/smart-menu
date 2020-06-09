@@ -1,19 +1,8 @@
-<div class="d-flex justify-content-center mb-3 test">
-<div class="d-flex justify-content-center mb-3 test list-home">
-  <div class="p-2 bd-highlight ">Todos</div>
-  <div class="p-2 bd-highlight ">Brazilian</div>
-  <div class="p-2 bd-highlight ">Italian</div>
-  <div class="p-2 bd-highlight  ">Todos</div>
-  <div class="p-2 bd-highlight ">Brazilian</div>
-  <div class="p-2 bd-highlight ">Italian</div>
-  <div class="p-2 bd-highlight ">Brazilian</div>
-  <div class="p-2 bd-highlight ">Italian</div>
-</div>
-</div>
 <%@restaurants.each do |restaurant|%>
-  <div id="restaurants-home">
-  <div id="logo-home" class="text-center">logo</div>
-  <div id="description-home" class="text-center"><%=restaurant.name%></div>
-</div>
+  <%= link_to restaurant_path(restaurant) do %>
+    <div id="restaurants-home">
+      <div id="logo-home" class="text-center">logo</div>
+      <div id="description-home" class="text-center"><%=restaurant.name%></div>
+    </div>
+  <% end %>
 <% end %>
-
