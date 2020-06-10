@@ -1,6 +1,6 @@
 require 'faker'
 
-puts "Criando 20 faker restaurnts"
+puts "Criating Users, restaurants, tables and items"
 
 20.times do |i|
   email = "test#{i}@test.com"
@@ -19,6 +19,24 @@ end
   cate = ["Indian", "Brazilian", "Fast-Food", "Chinesse",].sample
   restaurant = Restaurant.new(name: resto, address: add, email: email, user: User.all.sample, category: cate)
   restaurant.save
+  #adding 10 tables in the restaurant
+  10.times do |i|
+  place = Place.new
+  place.name = i.to_s
+  place.restaurant_id = restaurant.id
+  place.save
+  end
+  #adding 20 dishes in the restaurant
+  20.times do |i|
+  item = Item.new
+  item.restaurant_id = restaurant.id
+  item.name = Faker::Dessert.variety
+  item.description = Faker::Lorem.sentence
+  item.price = i*10
+  item.save
+  end
 end
 
-puts "terminou de crian com exito"
+
+
+puts "Seed runned successfully!!!!"
