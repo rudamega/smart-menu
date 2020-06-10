@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_225321) do
+ActiveRecord::Schema.define(version: 2020_06_10_191704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_225321) do
     t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cart_id", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_225321) do
   add_foreign_key "carts", "places"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "restaurants"
+  add_foreign_key "orders", "carts"
   add_foreign_key "places", "restaurants"
   add_foreign_key "restaurants", "users"
 end
