@@ -49,9 +49,11 @@ ActiveRecord::Schema.define(version: 2020_06_10_191704) do
 
   create_table "carts", force: :cascade do |t|
     t.bigint "place_id", null: false
+    t.bigint "order_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_carts_on_order_id"
     t.index ["place_id"], name: "index_carts_on_place_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
@@ -114,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_191704) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "orders"
   add_foreign_key "carts", "places"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "restaurants"
