@@ -22,6 +22,7 @@ end
   #adding 10 tables in the restaurant
   10.times do |i|
   place = Place.new
+  i += 1
   place.name = i.to_s
   place.restaurant_id = restaurant.id
   place.save

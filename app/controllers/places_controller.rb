@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   def index
+    @places = Place.where(restaurant_id: params[:restaurant_id])
   end
 
   def show
