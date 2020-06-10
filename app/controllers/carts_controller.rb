@@ -9,6 +9,11 @@ class CartsController < ApplicationController
   end
 
   def create
+    @cart = Cart.new
+    @cart.place_id = place_id
+    @cart.user_id = current_user.id
+    @cart.save
+    raise
   end
 
   def edit
@@ -19,5 +24,9 @@ class CartsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+ 
 end
  
