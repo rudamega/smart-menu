@@ -39,4 +39,4 @@ end
 
 
 
-puts "terminou de criar com exito"
+puts "Seed runned successfully!!!!"
