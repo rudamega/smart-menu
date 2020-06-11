@@ -4,6 +4,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = current_user.cart
+    @cart_items = CartItem.where(cart_id: @cart)
   end
 
   def new
@@ -30,6 +31,5 @@ class CartsController < ApplicationController
 
   private
 
- 
+
 end
- 

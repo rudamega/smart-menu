@@ -1,2 +1,23 @@
-<h1>CartItems#index</h1>
-<p>Find me in app/views/cart_items/index.html.erb</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@cart_items.each do |item| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= item.item.name %></td>
+      <td><%= item.item.description %></td>
+      <td><%= item.item.price %></td>
+      <td><%= link_to "Details", "#", class: "btn btn-outline-secondary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

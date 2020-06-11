@@ -8,7 +8,15 @@
       <h2><%= item.name %></h2>
       <p><%= item.description %></p>
       <p><%= item.price %></p>
-      <%= link_to 'Add', cart_cart_items_path(current_user.cart,item_id: item), class: "btn btn-outline-secondary", method: :post %>
+      <% if current_user.present?%>
+        <%if current_user.cart%>
+          <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+        <% else %>
+          <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+        <% end %>
+      <% else %>
+        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+      <% end %>
 
     </div>
   </div>
