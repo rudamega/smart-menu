@@ -6,17 +6,19 @@
       <th scope="col">Name</th>
       <th scope="col">description</th>
       <th scope="col">Price</th>
-      <th scope="col">Price</th>
+      <th scope="col">Table</th>
+      <th scope="col">User</th>
     </tr>
   </thead>
   <tbody>
-  <%@cart_items.each do |item| %>
+  <%@cart_items.each do |cart_item| %>
     <tr>
       <th scope="row">1</th>
-      <td><%= item.item.name %></td>
-      <td><%= item.item.description %></td>
-      <td><%= item.item.price %></td>
-      <td><%= link_to "Details", "#", class: "btn btn-outline-secondary" %></td>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.description %></td>
+      <td><%= cart_item.item.price %></td>
+      <td><%= cart_item.cart.user.email%></td>
+      <td><%= cart_item.cart.place.name%></td>
     </tr>
     <% end %>
   </tbody>
