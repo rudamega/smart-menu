@@ -8,7 +8,7 @@
       <h2><%= item.name %></h2>
       <p><%= item.description %></p>
       <p><%= item.price %></p>
-      <%= link_to 'Add', "#", class: "btn btn-outline-secondary" %>
+      <%= link_to 'Add', cart_cart_items_path(current_user.cart,item_id: item), class: "btn btn-outline-secondary", method: :post %>
 
     </div>
   </div>
