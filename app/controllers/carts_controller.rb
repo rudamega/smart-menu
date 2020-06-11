@@ -5,6 +5,10 @@ class CartsController < ApplicationController
   def show
     @cart = current_user.cart
     @cart_items = CartItem.where(cart_id: @cart)
+    @cart_items_added = @cart_items.where(status: "added")
+    @cart_items_ordered = @cart_items.where(status: "ordered")
+    @cart_items_delivered = @cart_items.where(status: "delivered")
+    @cart_items_payed = @cart_items.where(status: "payed")
   end
 
   def new
