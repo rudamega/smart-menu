@@ -1,4 +1,8 @@
 
+<h1>Hellou <%= current_user.first_name%></h1>
+
+<h1>My cart</h1> 
+<%= link_to "Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,19 +10,53 @@
       <th scope="col">Name</th>
       <th scope="col">description</th>
       <th scope="col">Price</th>
-      <th scope="col">Table</th>
-      <th scope="col">User</th>
     </tr>
   </thead>
   <tbody>
-  <%@cart_items.each do |cart_item| %>
+  <%@cart_items_added.each do |cart_item| %>
     <tr>
       <th scope="row">1</th>
       <td><%= cart_item.item.name %></td>
       <td><%= cart_item.item.description %></td>
       <td><%= cart_item.item.price %></td>
-      <td><%= cart_item.cart.user.email%></td>
-      <td><%= cart_item.cart.place.name%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Preparing...</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@cart_items_ordered.each do |cart_item| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= cart_item.item.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>My orders</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@cart_items_delivered.each do |cart_item| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.price %></td>
     </tr>
     <% end %>
   </tbody>
