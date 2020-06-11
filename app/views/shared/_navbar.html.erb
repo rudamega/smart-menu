@@ -15,7 +15,9 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+           <%if current_user.cart%>
           <%= link_to "My-Cart", cart_path(current_user.cart), class: "nav-link" %>
+            <%end%>
         </li>
 
         <li class="nav-item dropdown">
