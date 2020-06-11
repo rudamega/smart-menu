@@ -10,10 +10,12 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new
-    @cart.place_id = place_id
+    @cart.place_id = params[:place_id]
     @cart.user_id = current_user.id
     @cart.save
-    raise
+    @place = Place.find(params[:place_id])
+    @restaurant = @place.restaurant
+    redirect_to restaurant_path(@restaurant)
   end
 
   def edit
