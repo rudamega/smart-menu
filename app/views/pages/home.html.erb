@@ -8,6 +8,8 @@
         <i class="fa fa-search"></i>
         <input type="text" class="fda_ip_search" placeholder="Search by food/restaurant">
     </div>
+    
+    
     <%# Nice that is exactly what I'm looking for. What you got for me? %>
     <%@restaurants.each do |restaurant|%>
       <%= link_to restaurant_path(restaurant) do %>
@@ -18,3 +20,17 @@
       <% end %>
     <% end %>
 </div>
+
+<div class="container">
+  <%@restaurants.each do |restaurant|%>
+    <div class="card-home">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="">
+      <div class="card-home-infos">
+          <%= link_to restaurant_path(restaurant) do %>
+            <h2><%=restaurant.name%></h2>
+          <% end %> 
+      </div>
+    </div>
+  <% end %>
+</div>
+
