@@ -1,0 +1,24 @@
+<%@carts.each do |cart| %>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%cart.cart_items.each do |item| %>
+    <tr>
+      <th scope="row"><%= cart.id %></th>
+      <td><%= item.item.name %></td>
+      <td><%= link_to "Details", "#", class: "btn btn-outline-secondary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% end %>
+
+
+
+
