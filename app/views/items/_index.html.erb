@@ -25,12 +25,18 @@
                 <p><%= item.description %></p>
                 <%# How much will it cost me? %>
                 <p><%= item.price %></p>
+
                 <%# if I'm here? Thats is a odd question. %>
                 <% if current_user.present?%>
                   <%# Should I buy it? %>
                   <%if current_user.cart%>
                     <%# Screw it, I will buy it. %>
-                    <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                    <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                      <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                      <%= t.input :quantity%>
+                      <%= t.submit%>
+                    <% end %>
+                    <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "btn btn-outline-secondary", method: :post %>
                   <% else %>
                     <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
                   <% end %>
