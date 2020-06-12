@@ -1,13 +1,20 @@
-<%# Sorry, never heard of you what's you name again? %>
-<h1>Smart Menu</h1>
-<%# Now I remember, what do you do that I don't recall? %>
-<h2>Restaurant menu made simple</h2>
-<%# Nice that is exactly what I'm looking for. What you got for me? %>
-<%@restaurants.each do |restaurant|%>
-  <%= link_to restaurant_path(restaurant) do %>
-    <div id="restaurants-home">
-      <div id="logo-home" class="text-center">logo</div>
-      <div id="description-home" class="text-center"><%=restaurant.name%></div>
+<div class="container">
+    <div class="d-flex justify-content-center">
+    <%# Now I remember, what do you do that I don't recall? %>
+    <h2>Restaurant menu made simple</h2>
     </div>
-  <% end %>
-<% end %>
+    
+    <div class="row fda_search_row">
+        <i class="fa fa-search"></i>
+        <input type="text" class="fda_ip_search" placeholder="Search by food/restaurant">
+    </div>
+    <%# Nice that is exactly what I'm looking for. What you got for me? %>
+    <%@restaurants.each do |restaurant|%>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div id="restaurants-home">
+          <div id="logo-home" class="text-center">logo</div>
+          <div id="description-home" class="text-center"><%=restaurant.name%></div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
