@@ -6,13 +6,14 @@
   display: flex;
   align-items: center;
   border-radius: 5px;
+  max-width: 450px;
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
+// .card-product img {
+//   height: 100%;
+//   width: 120px;
+//   object-fit: cover;
+// }
 
 .card-product h2 {
   font-size: 16px;
@@ -171,3 +172,20 @@ div.food_tile.active img
     box-shadow: 0 5px 1px rgba(248,142,124,0.7);
 }
 /** End Section Body Part 1 **/
+
+.plate img {
+    position: relative;
+    width: 150px;
+    border-radius: 100%;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.05);
+    box-shadow: inset 0 0 25px rgba(255,255,255,0.15),
+                inset 0 4px 0 rgba(0,0,0,0.05),
+                inset 0 -4px 0 rgba(0,0,0,0.05),
+                inset 0 10px 10px rgba(0,0,0,0.09),
+                0 1px 0px rgba(0,0,0,0.1),
+                0 8px 7px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-top: -60px;
+    margin-bottom: 18px;
+}
