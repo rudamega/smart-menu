@@ -1,0 +1,5 @@
+<%places.each do |place| %>
+<div class="body-geral">
+  <%= link_to place.name, carts_path(place_id: place.id), class:'list-group-item list-group-item-action', method: :post %>
+</div> 
+<% end %>

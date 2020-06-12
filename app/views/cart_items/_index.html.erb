@@ -1,5 +1,6 @@
 
 <h1>Hellou <%= current_user.first_name%></h1>
+<%= link_to 'Back to menu', :back, class: "btn btn-outline-secondary" %>
 
 <h1>My cart</h1> 
 <%= link_to "Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
