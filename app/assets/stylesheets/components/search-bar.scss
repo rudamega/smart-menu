@@ -1,0 +1,26 @@
+.fda_search_row
+{
+    position: relative;
+    margin-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.fda_search_row .fda_ip_search
+{
+    border: none;
+    background-color: #ececec;
+    font-size: 12px;
+    width: 100%;
+    padding: 15px 15px;
+    padding-left: 45px;
+    border-radius: 50px;
+}
+
+.fda_search_row .fa-search
+{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 18px;
+    margin-left: 18px;
+}
