@@ -1,5 +1,6 @@
 .card-product {
   overflow: hidden;
+  width: 90%;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -7,6 +8,7 @@
   align-items: center;
   border-radius: 5px;
   max-width: 450px;
+  margin-bottom: 10px;
 }
 
 // .card-product img {
@@ -109,7 +111,7 @@
 
 div.food_tile.active img
 {
-    background-color: rgba(220,230,252,0.85); 
+    background-color: rgba(220,230,252,0.85);
 }
 
 .food_name
@@ -124,7 +126,7 @@ div.food_tile.active img
 {
     font-size: 10px;
     color: rgba(38, 29, 86, 0.4);
-    margin-bottom: 15px;   
+    margin-bottom: 15px;
 }
 
 #food_meta
@@ -148,7 +150,7 @@ div.food_tile.active img
 {
     font-size: 12px;
     font-weight: 500;
-    color: rgba(38, 29, 86, 0.5);   
+    color: rgba(38, 29, 86, 0.5);
 }
 
 #btn-default

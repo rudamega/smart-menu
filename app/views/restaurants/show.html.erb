@@ -1,10 +1,17 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
-		<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choosetable">
-		Choose a table
-		</button>
+  <div class="text-center">
+    <% if @carts %>
+      Sua mesa e a "<%= @carts.place.name %>""
+      <%= link_to 'VER MEU CARRINHO', cart_path(@carts), class: "btn btn-outline-secondary"%>
+    <% else %>
+      <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choosetable">
+  		Choose a table
+  		</button>
+    <% end %>
+  </div>
 <div>
   <%= render 'items/index', items: @restaurant.items %>
-  	
+
 </div>
 <%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
 <%= link_to 'Back', :back, class: "btn btn-outline-secondary" %>
@@ -21,12 +28,12 @@
 				</div>
 
   <%= render 'places/index', places: @restaurant.places %>
- 
+
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
-	
-	
+
+
 </div><!-- container -->
 
 

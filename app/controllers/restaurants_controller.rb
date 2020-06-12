@@ -10,6 +10,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @carts = Cart.where(user: current_user)
+    @carts = @carts.first
   end
 
   def new
