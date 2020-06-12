@@ -153,15 +153,16 @@ div.food_tile.active img
 
 #btn-default
 {
-    border: 1px solid rgba(0,0,0,0.5);
     margin-bottom: 15px;
     padding: 12px 40px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    background-color: transparent;
-    color: rgba(0,0,0,0.8);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    background-color: #f88e7c;
+    color: #fff;
+    box-shadow: 0 5px 1px rgba(248, 142, 124, 0.7);
 }
 
 .active #btn-default

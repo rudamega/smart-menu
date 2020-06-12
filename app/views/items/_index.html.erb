@@ -1,54 +1,35 @@
 <%# I'm hungry and looking for something to eat. %>
-<%# this is the restaurant menu page %>
 <div class="container">
-
   <%# Okay, what is in the menu. %>
   <h1>Restaurant Menu</h1>
-
     <%# I'm really hungry,I want to see everything they have. %>
     <%items.each do |item| %> 
-      
       <%# A picture say a thousand words %>
       <div class="card-product">
         <div class="plate">
             <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
         </div>
-          
         <%# What's is the name of this delicious thing I'm about to eat? %>
         <h2><%= item.name %></h2>
-
         <%# Humm, tell me more... %>
         <p><%= item.description %></p>
-
         <%# How much will it cost me? %>
         <p><%= item.price %></p>
-
         <%# if I'm here? Thats is a odd question. %>
         <% if current_user.present?%>
-
-        <%# Should I buy it? %>
-        <%if current_user.cart%>
-
-        <%# Screw it, I will buy it. %>
-        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
-
+          <%# Should I buy it? %>
+          <%if current_user.cart%>
+            <%# Screw it, I will buy it. %>
+            <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+          <% else %>
+            <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+          <% end %>
         <% else %>
-
-        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
-
+          <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
         <% end %>
-
-        <% else %>
-
-        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
-
-      <% end %>
   </div>
   <% end %>
 </div>
-
-
-
 
 <!-- Start Section Body Part 1 -->
 
