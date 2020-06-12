@@ -1,6 +1,6 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
-		<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
-		Choose a table modal
+		<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choosetable">
+		Choose a table
 		</button>
 <div>
   <%= render 'items/index', items: @restaurant.items %>
@@ -8,16 +8,16 @@
 </div>
 <%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
 <%= link_to 'Back', :back, class: "btn btn-outline-secondary" %>
-<%= link_to 'Choose a table', restaurant_places_path(@restaurant), class: "btn btn-outline-secondary" %>
+<!--<%= link_to 'Choose a table', restaurant_places_path(@restaurant), class: "btn btn-outline-secondary" %>-->
 
 	<!-- Modal -->
-	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+	<div class="modal right fade" id="choosetable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel2">Choose a table</h4>
+				<h4 class="modal-title" id="myModalLabel2">Choose a table</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
 
   <%= render 'places/index', places: @restaurant.places %>
