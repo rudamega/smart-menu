@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :carts do
     #TO DO : update this list so we can update the quantity of items within our cart
-    resources :cart_items, only: [:index, :new, :create, :destroy]
+    resources :cart_items, only: [:index, :new, :create, :destroy, :update]
   end
 
   devise_for :users
