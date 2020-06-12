@@ -1,32 +1,35 @@
 
-<h1>Hellou <%= current_user.first_name%></h1>
-<%= link_to 'Back to menu', :back, class: "btn btn-outline-secondary" %>
-
-<h1>My cart</h1> 
-<%= link_to "Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">description</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  <%@cart_items_added.each do |cart_item| %>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= cart_item.item.name %></td>
-      <td><%= cart_item.item.description %></td>
-      <td><%= cart_item.item.price %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Preparing...</h1>
-<table class="table table-striped">
+<div class="cart-acount mx-auto">
+  <div>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">description</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@cart_items_added.each do |cart_item| %>
+      <tr>
+        <th scope="row">1</th>
+        <td><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.description %></td>
+        <td><%= cart_item.item.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+  <div class="text-center m-3">
+    <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
+    <%= link_to 'Back to menu', :back, class: "btn btn-outline-secondary" %>
+  </div>
+</div>
+<% if @cart_items_ordered.first %>
+  <h1>Preparing...</h1>
+  <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -41,9 +44,12 @@
     </tr>
     <% end %>
   </tbody>
-</table>
+  </table>
+<% end %>
 
-<h1>My orders</h1>
+
+<% if @cart_items_delivered.first  %>
+  <h1>My orders</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -62,3 +68,6 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+<div class="text-center mt-5">
+</div>
