@@ -1,4 +1,6 @@
 
+<h1>My Service</h1>
+
 <%@carts.each do |cart| %>
   <table class="table table-striped">
   <thead>
@@ -6,14 +8,17 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Status</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <%cart.cart_items.each do |item| %>
     <tr>
-      <th scope="row"><%=cart.id %></th>
+      <th scope="row"><%=cart.place.name %></th>
       <td><%= item.item.name %></td>
-      <td><%= link_to "Details", "#", class: "btn btn-outline-secondary" %></td>
+      <td><%= item.status %></td>
+      <td><%= link_to "Deliver", "#", class: "btn btn-outline-secondary" %></td>
+  
     </tr>
     <% end %>
   </tbody>

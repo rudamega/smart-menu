@@ -11,7 +11,10 @@ class CartItemsController < ApplicationController
   end
 
   def update
-
+ @cart_item = CartItem.where(id: params[:id])
+ @cart_item.status = "delivered"
+ @cart_item.save
+ redirect_to carts_path
   end
 
 
