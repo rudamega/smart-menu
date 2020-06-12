@@ -2,84 +2,168 @@
 <div class="container">
   <%# Okay, what is in the menu. %>
   <h1>Restaurant Menu</h1>
-    <%# I'm really hungry,I want to see everything they have. %>
-    <%items.each do |item| %> 
-      <%# A picture say a thousand words %>
-      <div class="card-product">
-        <div class="plate">
-            <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
-        </div>
-        <%# What's is the name of this delicious thing I'm about to eat? %>
-        <h2><%= item.name %></h2>
-        <%# Humm, tell me more... %>
-        <p><%= item.description %></p>
-        <%# How much will it cost me? %>
-        <p><%= item.price %></p>
-        <%# if I'm here? Thats is a odd question. %>
-        <% if current_user.present?%>
-          <%# Should I buy it? %>
-          <%if current_user.cart%>
-            <%# Screw it, I will buy it. %>
-            <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
-          <% else %>
-            <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Entradas
+          </button>
+        </h2>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <%items.each do |item| %>
+            <% if item.category == "Starter" %>
+              <div class="card-product">
+                <div class="plate">
+                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
+                </div>
+                <%# What's is the name of this delicious thing I'm about to eat? %>
+                <h2><%= item.name %></h2>
+                <%# Humm, tell me more... %>
+                <p><%= item.description %></p>
+                <%# How much will it cost me? %>
+                <p><%= item.price %></p>
+                <%# if I'm here? Thats is a odd question. %>
+                <% if current_user.present?%>
+                  <%# Should I buy it? %>
+                  <%if current_user.cart%>
+                    <%# Screw it, I will buy it. %>
+                    <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                  <% else %>
+                    <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                  <% end %>
+                <% else %>
+                  <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
-        <% end %>
-  </div>
-  <% end %>
-</div>
-
-<!-- Start Section Body Part 1 -->
-
-  <div class="container-fluid">
-
-    <div id="fda_app" class="row">
-
-      <section id="fda_product_tile" class="col-12">
-
-        <div class="row fda_food_row">
-            <div class="col-9">
-                <div class="food_tile active">
-                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" alt="" class="fda_product_img">
-                    <span class="food_name">Schezwan Rice</span>
-                    <span class="food_detail">Triple schezuan rice, combines hakka noodles, fried rice, crisp noodles and ..</span>
-                    <ul id="food_meta">
-                        <li>
-                            Calorie
-                            <span>325 CAL</span>
-                        </li>
-                        <li>
-                            Price
-                            <span><i class="fa fa-inr"></i> 550</span>
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btn-sm" id="btn-default">Order Now</button>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="food_tile">
-                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/pav-bhaji.png?raw=true" alt="" class="fda_product_img">
-                    <span class="food_name">Pav Bhaji Butter</span>
-                    <span class="food_detail">Pav bhaji is a fast food dish from India, consisting of a thick vegetable curry ..</span>
-                    <ul id="food_meta">
-                        <li>
-                            Calorie
-                            <span>600 CAL</span>
-                        </li>
-                        <li>
-                            Price
-                            <span><i class="fa fa-inr"></i> 350</span>
-                        </li>
-                    </ul>
-                    <button type="button" id="btn-default" class="btn btn-sm">Order Now</button>
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Main Course
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <%items.each do |item| %>
+            <% if item.category == "Main Course" %>
+              <div class="card-product">
+                <div class="plate">
+                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
+                </div>
+                <%# What's is the name of this delicious thing I'm about to eat? %>
+                <h2><%= item.name %></h2>
+                <%# Humm, tell me more... %>
+                <p><%= item.description %></p>
+                <%# How much will it cost me? %>
+                <p><%= item.price %></p>
+                <%# if I'm here? Thats is a odd question. %>
+                <% if current_user.present?%>
+                  <%# Should I buy it? %>
+                  <%if current_user.cart%>
+                    <%# Screw it, I will buy it. %>
+                    <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                  <% else %>
+                    <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                  <% end %>
+                <% else %>
+                  <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Desserts
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 
-      </section>
+        <div class="card-body">
+          <%items.each do |item| %>
+            <% if item.category == "Dessert" %>
+              <div class="card-product">
+                <div class="plate">
+                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
+                </div>
+                <%# What's is the name of this delicious thing I'm about to eat? %>
+                <h2><%= item.name %></h2>
+                <%# Humm, tell me more... %>
+                <p><%= item.description %></p>
+                <%# How much will it cost me? %>
+                <p><%= item.price %></p>
+                <%# if I'm here? Thats is a odd question. %>
+                <% if current_user.present?%>
+                  <%# Should I buy it? %>
+                  <%if current_user.cart%>
+                    <%# Screw it, I will buy it. %>
+                    <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                  <% else %>
+                    <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                  <% end %>
+                <% else %>
+                  <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Drinks
+          </button>
+        </h2>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <%items.each do |item| %>
+            <% if item.category == "Drinks" %>
+              <div class="card-product">
+                <div class="plate">
+                    <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
+                </div>
+                <%# What's is the name of this delicious thing I'm about to eat? %>
+                <h2><%= item.name %></h2>
+                <%# Humm, tell me more... %>
+                <p><%= item.description %></p>
+                <%# How much will it cost me? %>
+                <p><%= item.price %></p>
+                <%# if I'm here? Thats is a odd question. %>
+                <% if current_user.present?%>
+                  <%# Should I buy it? %>
+                  <%if current_user.cart%>
+                    <%# Screw it, I will buy it. %>
+                    <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                  <% else %>
+                    <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                  <% end %>
+                <% else %>
+                  <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>
-<!-- End Section Body Part 1 -->
+</div>

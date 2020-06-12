@@ -10,7 +10,7 @@
   <tbody>
     <%cart.cart_items.each do |item| %>
     <tr>
-      <th scope="row"><%= cart.id %></th>
+      <th scope="row"><%=cart.id %></th>
       <td><%= item.item.name %></td>
       <td><%= link_to "Details", "#", class: "btn btn-outline-secondary" %></td>
     </tr>
