@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
   def index
+    @restaurant = Restaurant.find_by(user_id: current_user)
+    @places = Place.where(restaurant: @restaurant)
+    @carts = Cart.where(place: @places)
   end
 
   def show

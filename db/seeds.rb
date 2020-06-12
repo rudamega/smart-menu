@@ -28,16 +28,45 @@ end
   place.save
   end
   #adding 20 dishes in the restaurant
-  20.times do |i|
+  5.times do |i|
   item = Item.new
   item.restaurant_id = restaurant.id
   item.name = Faker::Dessert.variety
+  item.category = "Dessert"
+  item.description = Faker::Lorem.sentence
+  item.price = i*10
+  item.save
+  end
+
+  5.times do |i|
+  item = Item.new
+  item.restaurant_id = restaurant.id
+  item.name = Faker::Food.dish
+  item.category = "Starter"
+  item.description = Faker::Lorem.sentence
+  item.price = i*10
+  item.save
+  end
+
+  5.times do |i|
+  item = Item.new
+  item.restaurant_id = restaurant.id
+  item.name = Faker::Food.dish
+  item.category = "Main Course"
+  item.description = Faker::Lorem.sentence
+  item.price = i*10
+  item.save
+  end
+
+  5.times do |i|
+  item = Item.new
+  item.restaurant_id = restaurant.id
+  item.name = Faker::Beer.brand
+  item.category = "Drinks"
   item.description = Faker::Lorem.sentence
   item.price = i*10
   item.save
   end
 end
-
-
 
 puts "Seed runned successfully!!!!"
