@@ -8,6 +8,7 @@
         <th scope="col">Name</th>
         <th scope="col">description</th>
         <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@
         <td><%= cart_item.item.name %></td>
         <td><%= cart_item.item.description %></td>
         <td><%= cart_item.item.price %></td>
+        <td><%= cart_item.quantity.to_i %></td>
       </tr>
       <% end %>
     </tbody>
