@@ -11,12 +11,11 @@ class CartItemsController < ApplicationController
   end
 
   def update
- @cart_item = CartItem.where(id: params[:id])
- @cart_item.status = "delivered"
- @cart_item.save
- redirect_to carts_path
+    @cart_item = CartItem.where(id: params[:id]).first
+    @cart_item.status = "delivered"
+    @cart_item.save
+    redirect_to restaurant_carts_path(@cart_item.item.restaurant.id)
   end
-
 
   def destroy
     @cart_item = CartItem.find(params[:id])

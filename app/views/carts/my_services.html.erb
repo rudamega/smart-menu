@@ -1,5 +1,5 @@
 
-<div>
+<div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -16,7 +16,7 @@
                 <td><%= item.quantity.to_i %></td>
                 <td><%= item.item.name %></td>
                 <td><%= item.cart.place.name %></td>
-                <td><%= link_to item.status, "#", class: "btn btn-primary"%></td>
+                <td><%= link_to item.status, cart_item_path(item), class: "btn btn-primary", method: :patch, remote: true%></td>
               <% end %>
             <% end %>
         </tr>
