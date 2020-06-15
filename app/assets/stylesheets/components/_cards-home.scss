@@ -5,15 +5,12 @@
 }
 .card-home {
   overflow: hidden;
-  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
 }
 
 .card-home img {
   height: 100%;
-  width: 50%;
   object-fit: cover;
 }
 
