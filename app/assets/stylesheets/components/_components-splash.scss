@@ -20,3 +20,51 @@
   width: 375px;
   height: 344px;
 }
+
+.button-white {
+  font-family: Roboto;
+  font-weight: 800;
+  min-width: 250px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: #FF9234;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button-white:hover {
+  color: lightgrey;
+  text-decoration:none;
+}
+
+.button-orange {
+  font-family: Roboto;
+  font-weight: 800;
+  min-width: 250px;
+  border-radius: 5px;
+  border: none;
+  background-color:  #FF9234;
+  color:  white;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button-white:hover {
+  color: lightgrey;
+  text-decoration:none;
+}
+
+.button-orange:hover {
+  background-color: lightgrey;
+  text-decoration:none;
+}
+
+
+
