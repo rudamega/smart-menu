@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     @cart_item.cart_id = params[:cart_id]
     @cart_item.status = "added"
     @cart_item.quantity = params[:cart_item][:quantity]
-    @cart_item.save
+    @cart_item.save!
     redirect_to cart_path(@cart_item.cart_id)
   end
 
@@ -22,7 +22,5 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
   end
-
-private
 
 end

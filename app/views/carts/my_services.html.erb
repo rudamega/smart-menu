@@ -1,0 +1,26 @@
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col-4">Qty</th>
+        <th scope="col-4">Name</th>
+        <th scope="col-4">Table</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@cart_items.each do |item|%>
+        <tr>
+            <% if item.status == "ordered" %>
+              <% if item.item.restaurant.id == @restaurant %>
+                <td><%= item.quantity.to_i %></td>
+                <td><%= item.item.name %></td>
+                <td><%= item.cart.place.name %></td>
+                <td><%= link_to item.status, "#", class: "btn btn-primary"%></td>
+              <% end %>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
