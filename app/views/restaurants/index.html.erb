@@ -1,8 +1,31 @@
-<h1>Restaurants#index</h1>
-
-<div class="body-geral">
-  <%@restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, restaurant_path(restaurant), class:'list-group-item list-group-item-action'%>
-  <% end %>
+<div class="container">
+  <div class="d-flex justify-content-center mt-4">
+    <%# Now I remember, what do you do that I don't recall? %>
+    <h2>Restaurant menu made simple</h2>
+  </div>
+    <%# Nice that is exactly what I'm looking for. What you got for me? %>
+    <div class="row fda_search_row mb-4">
+        <i class="fa fa-search"></i>
+      <input type="text" class="fda_ip_search" placeholder="Search by food/restaurant">
+    </div>
 </div>
-  <%= link_to "Create New restaurants", new_restaurant_path %>
+    
+    <div class="subtitle justify-content-center">
+    <h3>Encontre aqui seu restaurante </h3>
+    </div>
+    
+<div class="container">
+    <div class="cards-home">
+      <%@restaurants.each do |restaurant|%>
+        <div class="card-home">
+          <img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="">
+          <div class="card-home-infos">
+              <%= link_to restaurant_path(restaurant) do %>
+                <h2><%=restaurant.name%></h2>
+              <% end %> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+</div>
