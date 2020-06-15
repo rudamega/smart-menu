@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :items, only: [:index, :show, :new, :create]
     resources :places
+    get 'carts', to: 'carts#my_services'
   end
 
   resources :carts do

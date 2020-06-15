@@ -18,6 +18,12 @@ class CartsController < ApplicationController
   def new
   end
 
+  def my_services
+    @restaurant = params[:restaurant_id]
+    @restaurant = @restaurant.to_i
+    @cart_items = CartItem.all
+  end
+
   def create
     @cart = Cart.new
     @cart.place_id = params[:place_id]
