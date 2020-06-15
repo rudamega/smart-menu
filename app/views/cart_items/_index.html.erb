@@ -1,75 +1,70 @@
 
-<div class="cart-acount mx-auto">
-  <div>
-    <table class="table table-striped">
+  <%@cart_sum = 0 %>
+  <%@cart_items_added.each do |cart_item| %>
+  <% @cart_sum += cart_item.quantity * cart_item.item.price %>
+  <% end %>
+   <%@bill_sum = 0 %>
+  <%@cart_items.each do |cart_item| %>
+  <% @bill_sum += cart_item.quantity * cart_item.item.price %>
+  <% end %>
+   <%@bill_sum -= @cart_sum %>
+
+ 
+  <h1>My cart:<%= @cart_sum %> </h1>
+<div class="container">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">description</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
+        <th scope="col-3">Qty</th>
+        <th scope="col-3">Name</th>
+        <th scope="col-3">Price</th>
+        <th scope="col-3">Modify</th>
       </tr>
     </thead>
     <tbody>
-      <%@cart_items_added.each do |cart_item| %>
+    <%@cart_items_added.each do |cart_item| %>
       <tr>
-        <th scope="row">1</th>
-        <td><%= cart_item.item.name %></td>
-        <td><%= cart_item.item.description %></td>
+        <td><%= cart_item.quantity.to_i%></td>
+        <td><%= cart_item.item.name%></td>
         <td><%= cart_item.item.price %></td>
-        <td><%= cart_item.quantity.to_i %></td>
       </tr>
       <% end %>
     </tbody>
-    </table>
-  </div>
-  <div class="text-center m-3">
-    <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
-    <%= link_to 'Back to menu', :back, class: "btn btn-outline-secondary" %>
-  </div>
-</div>
-<% if @cart_items_ordered.first %>
-  <h1>Preparing...</h1>
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-  <%@cart_items_ordered.each do |cart_item| %>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= cart_item.item.name %></td>
-    </tr>
-    <% end %>
-  </tbody>
   </table>
-<% end %>
+</div>
 
+<h1>Bill: <%= @bill_sum %></h1>
 
-<% if @cart_items_delivered.first  %>
-  <h1>My orders</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  <%@cart_items_delivered.each do |cart_item| %>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= cart_item.item.name %></td>
-      <td><%= cart_item.item.price %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-<div class="text-center mt-5">
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col-3">Qty</th>
+        <th scope="col-3">Name</th>
+        <th scope="col-3">Price</th>
+        <th scope="col-3">status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <%@cart_items_ordered.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.quantity.to_i%></td>
+        <td><%= cart_item.item.name%></td>
+        <td><%= cart_item.item.price %></td>
+        <td><%= cart_item.status %></td>
+      </tr>
+      <% end %>
+    </tbody>
+       <tbody>
+    <%@cart_items_delivered.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.quantity.to_i%></td>
+        <td><%= cart_item.item.name%></td>
+        <td><%= cart_item.item.price %></td>
+        <td><%= cart_item.status %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
