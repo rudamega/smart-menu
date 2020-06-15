@@ -1,12 +1,7 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
   <div class="text-center">
     <% if @carts %>
-      Your tbale is: "<%= @carts.place.name %>""
-      <%= link_to 'SEE MY CART', cart_path(@carts), class: "btn btn-outline-secondary"%>
-    <% else %>
-      <button type="button" class="button-orange my-3" data-toggle="modal" data-target="#choosetable">
-  		Choose a table
-  		</button>
+      Your table is: "<%= @carts.place.name %>""
     <% end %>
   </div>
 <div>
@@ -14,8 +9,8 @@
 
 </div>
 <div class="d-flex justify-content-center mt-3">
-<%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "button-orange mr-3" %>
-<%= link_to 'Back', :back, class: "button-orange" %>
+<%#= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "button-orange mr-3" %>
+<%= link_to 'Back', :back %>
 <!--<%= link_to 'Choose a table', restaurant_places_path(@restaurant), class: "btn btn-outline-secondary" %>-->
 
 </div>
@@ -36,9 +31,17 @@
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
 
-
 </div><!-- container -->
-
+<div class="footer-white"></div>
+<% if @carts %>
+  <div class="footer text-center"><%= link_to 'SEE MY CART', cart_path(@carts)%></div>
+ <% else %>
+    <div class="text-center">
+      <button type="button" class="button-orange my-3" data-toggle="modal" data-target="#choosetable">
+        Choose a table
+      </button>
+    </div>
+<% end %>
 
 
 
