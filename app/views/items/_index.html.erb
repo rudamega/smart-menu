@@ -22,13 +22,13 @@
                   <div class="plate">
                       <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
                   </div>
-                  <div class="product-deitals">
+                  <div class="product-details">
                     <%# What's is the name of this delicious thing I'm about to eat? %>
                     <h2><%= item.name %></h2>
                     <%# Humm, tell me more... %>
                     <p><%= item.description %></p>
                     <%# How much will it cost me? %>
-                    <p><%= item.price %></p>
+                    <p>R$ <%= item.price %></p>
                     <%# if I'm here? Thats is a odd question. %>
                     <% if current_user.present?%>
                       <%# Should I buy it? %>
@@ -39,12 +39,12 @@
                           <%= t.input :quantity%>
                           <%= t.submit%>
                         <% end %>
-                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "btn btn-outline-secondary", method: :post %>
+                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
                       <% else %>
-                        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
                     <% else %>
-                      <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
                   </div>
                 </div>
@@ -77,18 +77,18 @@
                     <%# Humm, tell me more... %>
                     <p><%= item.description %></p>
                     <%# How much will it cost me? %>
-                    <p><%= item.price %></p>
+                    <p>R$ <%= item.price %></p>
                     <%# if I'm here? Thats is a odd question. %>
                     <% if current_user.present?%>
                       <%# Should I buy it? %>
                       <%if current_user.cart%>
                         <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
                       <% else %>
-                        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
                     <% else %>
-                      <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
                   </div>
                 </div>
@@ -122,18 +122,18 @@
                     <%# Humm, tell me more... %>
                     <p><%= item.description %></p>
                     <%# How much will it cost me? %>
-                    <p><%= item.price %></p>
+                    <p>R$ <%= item.price %></p>
                     <%# if I'm here? Thats is a odd question. %>
                     <% if current_user.present?%>
                       <%# Should I buy it? %>
                       <%if current_user.cart%>
                         <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
                       <% else %>
-                        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
                     <% else %>
-                      <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
                   </div>
                 </div>
@@ -166,18 +166,18 @@
                     <%# Humm, tell me more... %>
                     <p><%= item.description %></p>
                     <%# How much will it cost me? %>
-                    <p><%= item.price %></p>
+                    <p>R$ <%= item.price %></p>
                     <%# if I'm here? Thats is a odd question. %>
                     <% if current_user.present?%>
                       <%# Should I buy it? %>
                       <%if current_user.cart%>
                         <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "btn btn-outline-secondary", method: :post %>
+                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
                       <% else %>
-                        <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
                     <% else %>
-                      <%= link_to 'meza', "#", class: "btn btn-outline-secondary"%>
+                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
                   </div>
                 </div>

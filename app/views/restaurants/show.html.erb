@@ -1,10 +1,10 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
   <div class="text-center">
     <% if @carts %>
-      Sua mesa e a "<%= @carts.place.name %>""
-      <%= link_to 'VER MEU CARRINHO', cart_path(@carts), class: "btn btn-outline-secondary"%>
+      Your tbale is: "<%= @carts.place.name %>""
+      <%= link_to 'SEE MY CART', cart_path(@carts), class: "btn btn-outline-secondary"%>
     <% else %>
-      <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#choosetable">
+      <button type="button" class="button-orange my-3" data-toggle="modal" data-target="#choosetable">
   		Choose a table
   		</button>
     <% end %>
@@ -13,9 +13,12 @@
   <%= render 'items/index', items: @restaurant.items %>
 
 </div>
-<%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "btn btn-outline-secondary" %>
-<%= link_to 'Back', :back, class: "btn btn-outline-secondary" %>
+<div class="d-flex justify-content-center mt-3">
+<%= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "button-orange mr-3" %>
+<%= link_to 'Back', :back, class: "button-orange" %>
 <!--<%= link_to 'Choose a table', restaurant_places_path(@restaurant), class: "btn btn-outline-secondary" %>-->
+
+</div>
 
 	<!-- Modal -->
 	<div class="modal right fade" id="choosetable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
