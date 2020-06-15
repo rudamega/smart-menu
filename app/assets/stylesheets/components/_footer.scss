@@ -1,10 +1,15 @@
 .footer {
-  background: #F4F4F4;
-  height: 60px;
-  background-color: green;
-  width: 100%;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  height: 50px;
+  width: 90%;
+  border: 2px solid #F39031;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  margin: 5%;
+}
+.footer-white {
+  height: 80px;
+  background-color: white;
 }
