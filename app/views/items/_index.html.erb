@@ -2,7 +2,7 @@
 <div class="container">
   <div class="d-flex justify-content-center">
     <%# Okay, what is in the menu. %>
-    <h1>Restaurant Menu</h1>
+    <h1>Menu</h1>
   </div>
   <div class="accordion" id="accordionExample">
     <div class="card">
@@ -18,34 +18,36 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Starter" %>
-                <div class="card-home">
-
-                  <div class="product-details">
-                    <%# What's is the name of this delicious thing I'm about to eat? %>
-                    <h2><%= item.name %></h2>
-                    <%# Humm, tell me more... %>
-                    <p><%= item.description %></p>
-                    <%# How much will it cost me? %>
-                    <p>R$ <%= item.price %></p>
-                    <%# if I'm here? Thats is a odd question. %>
-                    <% if current_user.present?%>
-                      <%# Should I buy it? %>
-                      <%if current_user.cart%>
-                        <%# Screw it, I will buy it. %>
-                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                    <div class="card-group vgr-cards">
+                      <div class="card">
+                        <div class="plate img">
+                             <% if item.photo.attached? %>
+                              <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+                              <%else%>
+                               <%= image_tag "plate.jpg", height: 200, width: 200, crop: :fill %> 
+                              <% end %>
+                        </div>
+                        <div class="card-body">
+                          <h2 class="card-title"><%= item.name %></h2>
+                          <p class="card-text"><%= item.description %></p>
+                          <p class="card-text">R$ <%= item.price %></p>
+                          <% if current_user.present?%>
+                          <%if current_user.cart%>
+                          <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity, collection: [1,2,3,4,5,6]%>
-                          <%= t.submit "Add", class: "button-orange"%>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
+                          <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
+
                         <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
                       <% else %>
                         <%= link_to 'Please choose a table', "#", class: "choose_table"%>
+
                       <% end %>
-                    <% else %>
-                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
-                  </div>
-                </div>
+                        </div>
+                      </div>
+                    </div>
               <% end %>
             <% end %>
           </div>
@@ -65,34 +67,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Main Course" %>
-                <div class="card-home">
-
-                  <div class="product-details">
-                    <%# What's is the name of this delicious thing I'm about to eat? %>
-                    <h2><%= item.name %></h2>
-                    <%# Humm, tell me more... %>
-                    <p><%= item.description %></p>
-                    <%# How much will it cost me? %>
-                    <p>R$ <%= item.price %></p>
-                    <%# if I'm here? Thats is a odd question. %>
-                    <% if current_user.present?%>
-                      <%# Should I buy it? %>
-                      <%if current_user.cart%>
-                        <%# Screw it, I will buy it. %>
-                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+           <div class="card-group vgr-cards">
+                      <div class="card">
+                        <div class="plate img">
+                             <% if item.photo.attached? %>
+                              <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+                              <%else%>
+                               <%= image_tag "plate.jpg", height: 200, width: 200, crop: :fill %> 
+                              <% end %>
+                        </div>
+                        <div class="card-body">
+                          <h2 class="card-title"><%= item.name %></h2>
+                          <p class="card-text"><%= item.description %></p>
+                          <p class="card-text">R$ <%= item.price %></p>
+                          <% if current_user.present?%>
+                          <%if current_user.cart%>
+                          <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity%>
-                          <%= t.submit "Add", class: "button-orange"%>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
+                          <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
-                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
-                      <% else %>
-                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
-                    <% else %>
-                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
-                  </div>
-                </div>
+                        </div>
+                      </div>
+                    </div>
               <% end %>
             <% end %>
           </div>
@@ -113,33 +112,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Dessert" %>
-                <div class="card-home">
-                  <div class="product-details">
-                    <%# What's is the name of this delicious thing I'm about to eat? %>
-                    <h2><%= item.name %></h2>
-                    <%# Humm, tell me more... %>
-                    <p><%= item.description %></p>
-                    <%# How much will it cost me? %>
-                    <p>R$ <%= item.price %></p>
-                    <%# if I'm here? Thats is a odd question. %>
-                    <% if current_user.present?%>
-                      <%# Should I buy it? %>
-                      <%if current_user.cart%>
-                        <%# Screw it, I will buy it. %>
-                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+         <div class="card-group vgr-cards">
+                      <div class="card">
+                        <div class="plate img">
+                             <% if item.photo.attached? %>
+                              <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+                              <%else%>
+                               <%= image_tag "plate.jpg", height: 200, width: 200, crop: :fill %> 
+                              <% end %>
+                        </div>
+                        <div class="card-body">
+                          <h2 class="card-title"><%= item.name %></h2>
+                          <p class="card-text"><%= item.description %></p>
+                          <p class="card-text">R$ <%= item.price %></p>
+                          <% if current_user.present?%>
+                          <%if current_user.cart%>
+                          <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity%>
-                          <%= t.submit "Add", class: "button-orange"%>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
+                          <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
-                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
-                      <% else %>
-                        <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
-                    <% else %>
-                      <%= link_to 'table', "#", class: "button-orange"%>
                     <% end %>
-                  </div>
-                </div>
+                        </div>
+                      </div>
+                    </div>
               <% end %>
             <% end %>
           </div>
@@ -159,34 +156,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Drinks" %>
-                <div class="card-home">
-
-                                  <div class="product-details">
-                                    <%# What's is the name of this delicious thing I'm about to eat? %>
-                                    <h2><%= item.name %></h2>
-                                    <%# Humm, tell me more... %>
-                                    <p><%= item.description %></p>
-                                    <%# How much will it cost me? %>
-                                    <p>R$ <%= item.price %></p>
-                                    <%# if I'm here? Thats is a odd question. %>
-                                    <% if current_user.present?%>
-                                      <%# Should I buy it? %>
-                                      <%if current_user.cart%>
-                                        <%# Screw it, I will buy it. %>
-                                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
-                                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                          <%= t.input :quantity%>
-                                          <%= t.submit "Add", class: "button-orange"%>
-                                        <% end %>
-                                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
-                                      <% else %>
-                                        <%= link_to 'table', "#", class: "button-orange"%>
-                                      <% end %>
-                                    <% else %>
-                                      <%= link_to 'table', "#", class: "button-orange"%>
-                                    <% end %>
-                                  </div>
-                                </div>
+         <div class="card-group vgr-cards">
+                      <div class="card">
+                        <div class="plate img">
+                             <% if item.photo.attached? %>
+                              <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+                              <%else%>
+                               <%= image_tag "plate.jpg", height: 200, width: 200, crop: :fill %> 
+                              <% end %>
+                        </div>
+                        <div class="card-body">
+                          <h2 class="card-title"><%= item.name %></h2>
+                          <p class="card-text"><%= item.description %></p>
+                          <p class="card-text">R$ <%= item.price %></p>
+                          <% if current_user.present?%>
+                          <%if current_user.cart%>
+                          <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
+                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
+                          <%= t.submit "Add", class: "btn btn-primary"%>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                        </div>
+                      </div>
+                    </div>
               <% end %>
             <% end %>
           </div>
