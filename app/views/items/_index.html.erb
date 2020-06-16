@@ -34,7 +34,7 @@
                         <%# Screw it, I will buy it. %>
                         <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity%>
+                          <%= t.input :quantity, collection: [1,2,3,4,5,6]%>
                           <%= t.submit "Add", class: "button-orange"%>
                         <% end %>
                         <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
