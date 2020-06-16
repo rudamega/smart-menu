@@ -35,7 +35,7 @@
                           <%if current_user.cart%>
                           <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px'} %>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
                           <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
 
@@ -84,7 +84,7 @@
                           <%if current_user.cart%>
                           <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px'} %>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
                           <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
                       <% end %>
@@ -129,7 +129,7 @@
                           <%if current_user.cart%>
                           <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px'} %>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
                           <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
                       <% end %>
@@ -173,7 +173,7 @@
                           <%if current_user.cart%>
                           <%= simple_form_for [current_user.cart, CartItem.new], html: {class: 'form-inline'} do |t| %>
                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px'} %>
+                          <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px', value: 1} %>
                           <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
                       <% end %>
