@@ -38,11 +38,6 @@
                           <%= t.input :quantity, label: "Qty ", :input_html => {:style=> 'width: 80px'} %>
                           <%= t.submit "Add", class: "btn btn-primary"%>
                         <% end %>
-
-                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
-                      <% else %>
-                        <%= link_to 'Please choose a table', "#", class: "choose_table"%>
-
                       <% end %>
                     <% end %>
                         </div>
