@@ -66,9 +66,7 @@
             <%items.each do |item| %>
               <% if item.category == "Main Course" %>
                 <div class="card-home">
-                  <div class="plate">
-                      <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
-                  </div>
+
                   <div class="product-details">
                     <%# What's is the name of this delicious thing I'm about to eat? %>
                     <h2><%= item.name %></h2>
@@ -81,7 +79,12 @@
                       <%# Should I buy it? %>
                       <%if current_user.cart%>
                         <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
+                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                          <%= t.input :quantity%>
+                          <%= t.submit "Add", class: "button-orange"%>
+                        <% end %>
+                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
                       <% else %>
                         <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
@@ -111,9 +114,6 @@
             <%items.each do |item| %>
               <% if item.category == "Dessert" %>
                 <div class="card-home">
-                  <div class="plate">
-                      <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
-                  </div>
                   <div class="product-details">
                     <%# What's is the name of this delicious thing I'm about to eat? %>
                     <h2><%= item.name %></h2>
@@ -126,7 +126,12 @@
                       <%# Should I buy it? %>
                       <%if current_user.cart%>
                         <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
+                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                          <%= t.input :quantity%>
+                          <%= t.submit "Add", class: "button-orange"%>
+                        <% end %>
+                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
                       <% else %>
                         <%= link_to 'table', "#", class: "button-orange"%>
                       <% end %>
@@ -155,30 +160,33 @@
             <%items.each do |item| %>
               <% if item.category == "Drinks" %>
                 <div class="card-home">
-                  <div class="plate">
-                      <img src="https://github.com/CodeFrogShow/UI-Design-Food-Delivery-App/blob/master/imgs/food/tsr.png?raw=true" />
-                  </div>
-                  <div class="product-details">
-                    <%# What's is the name of this delicious thing I'm about to eat? %>
-                    <h2><%= item.name %></h2>
-                    <%# Humm, tell me more... %>
-                    <p><%= item.description %></p>
-                    <%# How much will it cost me? %>
-                    <p>R$ <%= item.price %></p>
-                    <%# if I'm here? Thats is a odd question. %>
-                    <% if current_user.present?%>
-                      <%# Should I buy it? %>
-                      <%if current_user.cart%>
-                        <%# Screw it, I will buy it. %>
-                        <%= link_to 'Add', cart_cart_items_path(current_user.cart, item_id: item), class: "button-orange", method: :post %>
-                      <% else %>
-                        <%= link_to 'table', "#", class: "button-orange"%>
-                      <% end %>
-                    <% else %>
-                      <%= link_to 'table', "#", class: "button-orange"%>
-                    <% end %>
-                  </div>
-                </div>
+
+                                  <div class="product-details">
+                                    <%# What's is the name of this delicious thing I'm about to eat? %>
+                                    <h2><%= item.name %></h2>
+                                    <%# Humm, tell me more... %>
+                                    <p><%= item.description %></p>
+                                    <%# How much will it cost me? %>
+                                    <p>R$ <%= item.price %></p>
+                                    <%# if I'm here? Thats is a odd question. %>
+                                    <% if current_user.present?%>
+                                      <%# Should I buy it? %>
+                                      <%if current_user.cart%>
+                                        <%# Screw it, I will buy it. %>
+                                        <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                                          <%= t.input :quantity%>
+                                          <%= t.submit "Add", class: "button-orange"%>
+                                        <% end %>
+                                        <%#= link_to 'Add', cart_cart_items_path(current_user.cart, {item_id: item, quantity: quantity}), class: "button-orange", method: :post %>
+                                      <% else %>
+                                        <%= link_to 'table', "#", class: "button-orange"%>
+                                      <% end %>
+                                    <% else %>
+                                      <%= link_to 'table', "#", class: "button-orange"%>
+                                    <% end %>
+                                  </div>
+                                </div>
               <% end %>
             <% end %>
           </div>
