@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     #TO DO : update this list so we can update the quantity of items within our cart
     resources :cart_items, only: [:index, :new, :create, :destroy]
   end
+  get 'checkout', to: 'carts#checkout'
 
   devise_for :users
   root to: 'pages#home'
