@@ -2,16 +2,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
+  border-radius: 15px;
 }
 .card-home {
   overflow: hidden;
   background: white;
+  border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-home img {
-  height: 100%;
+  width: 100%;
+  height: 150px;
   object-fit: cover;
+  border-radius: 15px 0 0;
 }
 
 .card-home h2 {
