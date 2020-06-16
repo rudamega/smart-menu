@@ -17,6 +17,9 @@ class CartsController < ApplicationController
 
   def new
   end
+  def checkout
+
+  end
 
   def my_services
     @restaurant = params[:restaurant_id]
