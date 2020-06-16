@@ -1,9 +1,14 @@
 <div class="container">
     <%# Nice that is exactly what I'm looking for. What you got for me? %>
-    <div class="row fda_search_row mb-4">
-        <i class="fa fa-search"></i>
-      <input type="text" class="fda_ip_search" placeholder="Search by food/restaurant">
-    </div>
+
+<form action="/restaurants" class="form-inline d-flex justify-content-center md-form form-sm mt-15 m-5">
+  <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" name="query" placeholder="Search"
+    aria-label="Search">
+</form>
+
+   
+</div>
 </div>
 <div class="container">
     <div class="cards-home">

@@ -1,7 +1,13 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show ]
   def index
-    @restaurants = Restaurant.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @restaurants = Restaurant.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
+
   end
 
   def my_restaurant
