@@ -1,7 +1,13 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
   <div class="text-center">
     <% if @carts %>
-      Your table is: "<%= @carts.place.name %>""
+      <h3 class="choose_table-a">Your table is: "<%= @carts.place.name %>""</h3>
+    <% else %>
+      <div class="text-center">
+        <button type="button" class="button-orange" data-toggle="modal" data-target="#choosetable">
+          Please choose a table
+        </button>
+    </div>
     <% end %>
   </div>
 <div>
@@ -34,13 +40,7 @@
 </div><!-- container -->
 <div class="footer-white"></div>
 <% if @carts %>
-  <div class="footer text-center"><%= link_to 'SEE MY CART', cart_path(@carts)%></div>
- <% else %>
-    <div class="text-center">
-      <button type="button" class="button-orange my-3" data-toggle="modal" data-target="#choosetable">
-        Choose a table
-      </button>
-    </div>
+  <div class="footer text-center button-orange"><%= link_to 'SEE MY CART', cart_path(@carts)%></div>
 <% end %>
 
 
