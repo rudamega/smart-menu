@@ -4,6 +4,13 @@
   grid-gap: 10px;
   border-radius: 15px;
 }
+.card-description {
+  width: 100%;
+  margin: 10px;
+}
+.card-description h2 {
+ color: red;
+}
 .card-home {
   overflow: hidden;
   background: white;
