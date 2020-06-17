@@ -20,7 +20,10 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item = CartItem.find(params[:id])
+    @cart = @cart_item.cart
     @cart_item.destroy
+    redirect_to cart_path(@cart.id)
+
   end
 
 end
