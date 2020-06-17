@@ -8,17 +8,18 @@
   <% @bill_sum += cart_item.quantity * cart_item.item.price %>
   <% end %>
    <%@bill_sum -= @cart_sum %>
+
 <div class="body-cart">
   <% if @cart_sum != 0  %>
-    <h1>My cart:<%= @cart_sum %> </h1>
-    <div>
-      <table class="table table-striped">
+    <h3 class="glyphicon glyphicon-shopping-cart text-center"> R$ <%= @cart_sum %> </h3>
+    <div >
+      <table class="table table-sm">
         <thead>
           <tr>
-            <th scope="col-3">Qty</th>
-            <th scope="col-3">Name</th>
-            <th scope="col-3">Price</th>
-            <th scope="col-3">Modify</th>
+            <th scope="col-3">#</th>
+            <th scope="col-3">name</th>
+            <th scope="col-3">item</th>
+            <th scope="col-3">delete</th>
           </tr>
         </thead>
         <tbody>
@@ -26,47 +27,50 @@
           <tr>
             <td><%= cart_item.quantity.to_i%></td>
             <td><%= cart_item.item.name%></td>
-            <td><%= cart_item.item.price %></td>
+            <td>R$ <%= cart_item.item.price %></td>
+            <td> <button type="button" class="btn" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
     <div>
-    <div class="text-center m-3">
-      <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-secondary", method: :patch %>
+ 
+  <% end %>
+
+     <div class="text-center m-5">
+      <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-success", method: :patch %>
       <%= link_to 'Back to menu', :back, class: "btn btn-outline-secondary" %>
     </div>
-  <% end %>
 
   <% if @bill_sum != 0  %>
 
-    <h1 class="text-center">Bill</h1>
+    <h3 class="glyphicon glyphicon-list-alt text-center"> R$ <%= @bill_sum %> </h3>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col-3">Qty</th>
-          <th scope="col-3">Name</th>
-          <th scope="col-3">Price</th>
+          <th scope="col-3">#</th>
+          <th scope="col-3">name</th>
+          <th scope="col-3">price</th>
           <th scope="col-3">status</th>
         </tr>
       </thead>
       <tbody>
       <%@cart_items_ordered.each do |cart_item| %>
-        <tr>
+        <tr class="table-warning">
           <td><%= cart_item.quantity.to_i%></td>
           <td><%= cart_item.item.name%></td>
-          <td><%= cart_item.item.price %></td>
-          <td><%= cart_item.status %></td>
+          <td>R$ <%= cart_item.item.price %></td>
+          <td>preparing...</td>
         </tr>
         <% end %>
       </tbody>
          <tbody>
       <%@cart_items_delivered.each do |cart_item| %>
-        <tr>
+        <tr class="table-light">
           <td><%= cart_item.quantity.to_i%></td>
           <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item.price %></td>
+          <td>R$ <%= cart_item.item.price %></td>
           <td><%= cart_item.status %></td>
         </tr>
         <% end %>
@@ -76,7 +80,7 @@
 </div>
       <div class="footer-white"></div>
   <%=link_to checkout_path do %>
-  <div class="footer"><h2>Bill: <%= @bill_sum %></h2> </div>
+  <div class="footer"><h3>Pay R$ <%= @bill_sum %></h3> </div>
   <% end %>
 
   <% end %>
