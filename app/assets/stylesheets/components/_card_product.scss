@@ -78,8 +78,9 @@
 label.float.optional {
   display: none;
 }
-#cart_item_quantity.form-control.numeric.float.optional {
-  text-align: center;
+
+#new_cart_item {
+  display: inline !important;
 }
 
 
