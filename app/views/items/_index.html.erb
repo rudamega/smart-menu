@@ -18,7 +18,7 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Starter" %>
-                    <div class="card-group">
+                    <div class="card-group border-bottom padding-bottom mt-2">
                         <div class="card-2 d-flex">
                             <div class="plate img">
                                  <% if item.photo.attached? %>
@@ -33,13 +33,19 @@
                               <p class="card-text text-center">R$ <%= item.price %></p>
                             </div>
                         </div>
-                        <div class="text-center">
+                        <div>
                           <% if current_user.present?%>
                             <%if current_user.cart%>
-                                  <%= simple_form_for [current_user.cart, CartItem.new] do |t| %>
+                                  <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
                                     <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                    <%= t.input :quantity, :input_html => {:style=> 'width: 80px', value: 1} %>
-                                    <%= t.submit "Add", class: "btn btn-primary"%>
+                                    <div class="row mb-3">
+                                      <div class="col-6 d-flex justify-content-end text-center">
+                                        <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
+                                      </div>
+                                      <div class="col-6">
+                                        <%= t.submit "Add", class: "btn btn-outline-success"%>
+                                      </div>
+                                    </div>
                                   <% end %>
                                 <% else %>
                                   <button type="button" class="choose_table" data-toggle="modal" data-target="#choosetable">
