@@ -70,20 +70,23 @@
     box-shadow: 0 5px 1px rgba(248,142,124,0.7);
 }
 
-.plate{
-    width: 100px;
-    height: 100px;
+.plate {
+    width: 80px;
+    height: 80px;
 }
+
 label.float.optional {
   display: none;
+}
+#cart_item_quantity.form-control.numeric.float.optional {
+  text-align: center;
 }
 
 
 .plate img {
     position: relative;
-    width: 100% !important;
-    height: 100%;
     border-radius: 5%;
+    margin: 15px 0 0 15px ;
     background-color: rgba(0,0,0,0.05);
     border: 1px solid rgba(0,0,0,0.1);
 }
