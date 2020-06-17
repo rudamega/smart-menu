@@ -16,7 +16,7 @@ end
   num = Faker::PhoneNumber.cell_phone
   add = Faker::Address.street_name
   email = Faker::Internet.email
-  cate = ["Indian", "Brazilian", "Fast-Food", "Chinesse",].sample
+  cate = ["Indian", "Brazilian", "Fast-Food", "Chinese",].sample
   restaurant = Restaurant.new(name: resto, address: add, email: email, user: User.all.sample, category: cate)
   restaurant.save
   #adding 10 tables in the restaurant
