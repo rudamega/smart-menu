@@ -7,7 +7,8 @@ class CartItemsController < ApplicationController
     @cart_item.status = "added"
     @cart_item.quantity = params[:cart_item][:quantity]
     @cart_item.save!
-    redirect_to cart_path(@cart_item.cart_id)
+    #redirect_to cart_path(@cart_item.cart_id)
+    redirect_to restaurant_path(@cart_item.item.restaurant_id)
   end
 
   def update
