@@ -1,23 +1,11 @@
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
-  <div class="text-center">
-    <% if @carts %>
-      <h3 class="choose_table-a">Your table is: "<%= @carts.place.name %>""</h3>
-    <% else %>
-      <div class="text-center">
-        <button type="button" class="button-orange" data-toggle="modal" data-target="#choosetable">
-          Please choose a table
-        </button>
-    </div>
-    <% end %>
-  </div>
+
 <div>
   <%= render 'items/index', items: @restaurant.items %>
 
 </div>
 <div class="d-flex justify-content-center mt-3">
-<%#= link_to 'Add new item into your restaurant', new_restaurant_item_path(@restaurant), class: "button-orange mr-3" %>
-<%= link_to 'Back', :back %>
-<!--<%= link_to 'Choose a table', restaurant_places_path(@restaurant), class: "btn btn-outline-secondary" %>-->
+
 
 </div>
 
@@ -40,10 +28,15 @@
 </div><!-- container -->
 <div class="footer-white"></div>
 <% if @carts %>
-  <div class="footer text-center button-orange"><%= link_to 'SEE MY CART', cart_path(@carts)%></div>
+   <%=link_to cart_path(@carts) do %>
+  <div class="footer"><h3 class="glyphicon glyphicon-shopping-cart text-center"> (table <%= @carts.place.name %>)</h3></div>
+  <% end %>
+  <% else %>
+  <button type="button" class="footer" data-toggle="modal" data-target="#choosetable">
+          CHOOSE A TABLE
+  </button>
 <% end %>
 
-
-
-
+    <!--  <h3 class="glyphicon glyphicon-shopping-cart text-center"> R$ <%= @cart_sum %> </h3>  --> 
+     
 

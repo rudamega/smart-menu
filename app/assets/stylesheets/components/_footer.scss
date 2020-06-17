@@ -1,14 +1,18 @@
 .footer {
+  font-family: Roboto;
+  font-weight: 800;
   position: fixed;
   bottom: 0;
   height: 50px;
   width: 90%;
-  border: 2px solid #FFC828;
   background-color: #FFC828;
   border-radius: 8px;
   color: white;
   text-align: center;
+  padding-top: 8px;
+  text-decoration: none;
   margin: 5%;
+  border: none;
 }
 .footer-white {
   height: 80px;
