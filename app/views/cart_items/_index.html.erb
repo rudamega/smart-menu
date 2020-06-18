@@ -35,12 +35,12 @@
       </table>
     </div>
     <div>
- 
+
   <% end %>
 
      <div class="text-center m-5">
       <% if @cart_sum != 0  %>
-      <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-success", method: :patch %>
+      <%= link_to "Confirm Order!", cart_path(current_user.cart), class: "btn btn-outline-success", method: :patch, remote: true%>
       <% end %>
       <%= link_to 'Back to menu', restaurant_path(@cart.place.restaurant_id), class: "btn btn-outline-secondary" %>
     </div>

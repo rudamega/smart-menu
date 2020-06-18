@@ -43,7 +43,7 @@
                                               <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
                                             </div>
                                             <div class="col-6">
-                                              <%= t.submit "Add", class: "btn btn-outline-success"%>
+                                              <%= t.submit "Add", class: "btn btn-outline-success", remote: true%>
                                             </div>
                                           </div>
                                         <% end %>
