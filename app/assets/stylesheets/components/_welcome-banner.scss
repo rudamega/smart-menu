@@ -3,4 +3,23 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
+  position: relative;
+}
+
+.welcome-inside {
+  color: white;
+  width: 80%;
+  height: 80%;
+  align-items: center;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  background-color: #f8f9fa59;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcome-inside img {
+  z-index: 1;
 }

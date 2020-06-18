@@ -42,8 +42,9 @@
                                             <div class="ml-3">
                                               <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
                                             </div>
-                                            <div class="ml-2">
-                                              <%= t.submit "Add", class: "btn btn-outline-success"%>
+
+                                            <div class="col-6">
+                                              <%= t.submit "Add", class: "btn btn-outline-success", remote: true%>
                                             </div>
                                           </div>
                                         <% end %>
