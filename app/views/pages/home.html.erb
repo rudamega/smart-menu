@@ -1,15 +1,17 @@
 <body class="bg-orange">
-   <div class="container text-center" >
+   <div class="container">
+      <div class="text-center mb-3" >
       <%= link_to root_path do %>
-         <%= image_tag "logo.png", class: "image-home"%>
+      <%= image_tag "logo.png", class: "image-home" %>
       <% end %>
-   </div>
+      </div>
 
-   <div class= "container text-center" >
-      <%= link_to 'Log in', new_user_session_path, class: "button-white mb-4"%>
-   </div>
+      <div class= "text-center" >
+      <%= link_to 'Log in', new_user_session_path, class: "button-white mb-4" %>
+      </div>
 
-   <div class= "container text-center" >
-      <%= link_to 'Find a restaurant', restaurants_path, class: "button-white"%>
-   </div>
+      <div class= "text-center" >
+      <%= link_to 'Find a restaurant', restaurants_path, class: "button-white" %>
+      </div>
+   </div>   
 </body>
