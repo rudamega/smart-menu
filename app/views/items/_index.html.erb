@@ -1,14 +1,14 @@
 <%# I'm hungry and looking for something to eat. %>
 <div class="container">
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center title_menu">
     <%# Okay, what is in the menu. %>
     <h1>Menu</h1>
   </div>
   <div class="accordion" id="accordionExample">
     <div class="card">
-      <div class="card-header" id="headingOne">
+      <div class="card-header d-flex justify-content-center" id="headingOne">
         <h2 class="mb-0">
-          <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button class="btn btn-link" id="btn_btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Entradas
           </button>
         </h2>
@@ -18,30 +18,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Starter" %>
-                    <div class="card-group border-bottom padding-bottom mt-2">
-                        <div class="card-2 d-flex">
+                    <div class="card-group border-bottom padding-bottom">
+                        <div class="card-picture d-flex">
                             <div class="plate img">
                                  <% if item.photo.attached? %>
-                                  <%= cl_image_tag item.photo.key, height: 90, width: 90, crop: :fill %>
+                                  <%= cl_image_tag item.photo.key, height: 110, width: 110, crop: :fill %>
                                   <%else%>
-                                   <%= image_tag "plate.jpg", height: 80, width: 80, crop: :fill %>
+                                   <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
                                   <% end %>
                             </div>
-                            <div class="card-group">
-                              <div class="card-description">
-                                <h2 class="card-title text-center"><%= item.name %></h2>
-                                <p class="card-text text-center"><%= item.description %></p>
-                                <p class="card-text text-center">R$ <%= item.price %></p>
-                              </div>
-                              <div>
-                                <% if current_user.present?%>
+                  
+                           
+                      </div>
+                      <div class="card-description d-flex flex-column">
+                             
+                                <h2 class="card-title text-left"><%= item.name %> <em> R$<%= item.price %></em></h2>
+                                <p class="card-text text-left"><%= item.description %></p>
+                                 <% if current_user.present?%>
                                   <%if current_user.cart%>
                                         <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                          <div class="row mb-3">
-                                            <div class="col-6 d-flex justify-content-end text-center">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
+                                          <div class="row d-flex">
+                                            <div class="ml-3">
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
                                             </div>
+
                                             <div class="col-6">
                                               <%= t.submit "Add", class: "btn btn-outline-success", remote: true%>
                                             </div>
@@ -52,11 +53,11 @@
                                                 Before order, choose a table !
                                         </button>
                                   <% end %>
+                            
+                              
                                 <% end %>
-                              </div>
+                             
                             </div>
-                        </div>
-
                     </div>
               <% end %>
             <% end %>
@@ -65,9 +66,9 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-header" id="headingTwo">
+      <div class="card-header d-flex justify-content-center" id="headingTwo">
         <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <button class="btn btn-link collapsed" id="btn_btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Main Course
           </button>
         </h2>
@@ -77,45 +78,46 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Main Course" %>
-                <div class="card-group border-bottom padding-bottom mt-2">
-                    <div class="card-2 d-flex">
-                        <div class="plate img">
-                             <% if item.photo.attached? %>
-                              <%= cl_image_tag item.photo.key, height: 90, width: 90, crop: :fill %>
-                              <%else%>
-                               <%= image_tag "plate.jpg", height: 80, width: 80, crop: :fill %>
-                              <% end %>
-                        </div>
-                        <div class="card-group">
-                          <div class="card-description">
-                            <h2 class="card-title text-center"><%= item.name %></h2>
-                            <p class="card-text text-center"><%= item.description %></p>
-                            <p class="card-text text-center">R$ <%= item.price %></p>
-                          </div>
-                          <div>
-                            <% if current_user.present?%>
-                              <%if current_user.cart%>
-                                    <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
-                                      <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                      <div class="row mb-3">
-                                        <div class="col-6 d-flex justify-content-end text-center">
-                                          <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
-                                        </div>
-                                        <div class="col-6">
-                                          <%= t.submit "Add", class: "btn btn-outline-success"%>
-                                        </div>
-                                      </div>
-                                    <% end %>
-                                  <% else %>
-                                    <button type="button" class="choose_table" data-toggle="modal" data-target="#choosetable">
-                                            Before order, choose a table !
-                                    </button>
-                              <% end %>
-                            <% end %>
-                          </div>
-                        </div>
+               <div class="card-group border-bottom padding-bottom">
+                        <div class="card-picture d-flex">
+                            <div class="plate img">
+                                 <% if item.photo.attached? %>
+                                  <%= cl_image_tag item.photo.key, height: 110, width: 110, crop: :fill %>
+                                  <%else%>
+                                   <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
+                                  <% end %>
+                            </div>
+                  
+                           
+                      </div>
+                      <div class="card-description d-flex flex-column">
+                             
+                                <h2 class="card-title text-left"><%= item.name %> <em> R$<%= item.price %></em></h2>
+                                <p class="card-text text-left"><%= item.description %></p>
+                                 <% if current_user.present?%>
+                                  <%if current_user.cart%>
+                                        <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
+                                          <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
+                                          <div class="row d-flex">
+                                            <div class="ml-3">
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
+                                            </div>
+                                            <div class="ml-2">
+                                              <%= t.submit "Add", class: "btn btn-outline-success"%>
+                                            </div>
+                                          </div>
+                                        <% end %>
+                                      <% else %>
+                                        <button type="button" class="choose_table" data-toggle="modal" data-target="#choosetable">
+                                                Before order, choose a table !
+                                        </button>
+                                  <% end %>
+                            
+                              
+                                <% end %>
+                             
+                            </div>
                     </div>
-                </div>
               <% end %>
             <% end %>
           </div>
@@ -123,9 +125,9 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-header" id="headingThree">
+      <div class="card-header d-flex justify-content-center" id="headingThree">
         <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <button class="btn btn-link collapsed" id="btn_btn" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Desserts
           </button>
         </h2>
@@ -136,31 +138,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Dessert" %>
-                <div class="card-group border-bottom padding-bottom mt-2">
-                        <div class="card-2 d-flex">
+               <div class="card-group border-bottom padding-bottom">
+                        <div class="card-picture d-flex">
                             <div class="plate img">
                                  <% if item.photo.attached? %>
-                                  <%= cl_image_tag item.photo.key, height: 90, width: 90, crop: :fill %>
+                                  <%= cl_image_tag item.photo.key, height: 110, width: 110, crop: :fill %>
                                   <%else%>
-                                   <%= image_tag "plate.jpg", height: 80, width: 80, crop: :fill %>
+                                   <%= image_tag "plate.png", height: 110, width: 110, crop: :fill %>
                                   <% end %>
                             </div>
-                            <div class="card-group">
-                              <div class="card-description">
-                                <h2 class="card-title text-center"><%= item.name %></h2>
-                                <p class="card-text text-center"><%= item.description %></p>
-                                <p class="card-text text-center">R$ <%= item.price %></p>
-                              </div>
-                              <div>
-                                <% if current_user.present?%>
+                  
+                           
+                      </div>
+                      <div class="card-description d-flex flex-column">
+                             
+                                <h2 class="card-title text-left"><%= item.name %> <em> R$<%= item.price %></em></h2>
+                                <p class="card-text text-left"><%= item.description %></p>
+                                 <% if current_user.present?%>
                                   <%if current_user.cart%>
                                         <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                          <div class="row mb-3">
-                                            <div class="col-6 d-flex justify-content-end text-center">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
+                                          <div class="row d-flex">
+                                            <div class="ml-3">
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="ml-2">
                                               <%= t.submit "Add", class: "btn btn-outline-success"%>
                                             </div>
                                           </div>
@@ -170,11 +172,12 @@
                                                 Before order, choose a table !
                                         </button>
                                   <% end %>
+                            
+                              
                                 <% end %>
-                              </div>
+                             
                             </div>
-                        </div>
-                </div>
+                    </div>
               <% end %>
             <% end %>
           </div>
@@ -182,9 +185,9 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-header" id="headingFour">
+      <div class="card-header d-flex justify-content-center" id="headingFour">
         <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <button class="btn btn-link collapsed" id="btn_btn" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             Drinks
           </button>
         </h2>
@@ -194,31 +197,31 @@
           <div class="cards-home">
             <%items.each do |item| %>
               <% if item.category == "Drinks" %>
-                <div class="card-group border-bottom padding-bottom mt-2">
-                        <div class="card-2 d-flex">
+              <div class="card-group border-bottom padding-bottom">
+                        <div class="card-picture d-flex">
                             <div class="plate img">
                                  <% if item.photo.attached? %>
-                                  <%= cl_image_tag item.photo.key, height: 90, width: 90, crop: :fill %>
+                                  <%= cl_image_tag item.photo.key, height: 110, width: 110, crop: :fill %>
                                   <%else%>
-                                   <%= image_tag "plate.jpg", height: 80, width: 80, crop: :fill %>
+                                   <%= image_tag "drink.png", height: 110, width: 110, crop: :fill %>
                                   <% end %>
                             </div>
-                            <div class="card-group">
-                              <div class="card-description">
-                                <h2 class="card-title text-center"><%= item.name %></h2>
-                                <p class="card-text text-center"><%= item.description %></p>
-                                <p class="card-text text-center">R$ <%= item.price %></p>
-                              </div>
-                              <div>
-                                <% if current_user.present?%>
+                  
+                           
+                      </div>
+                      <div class="card-description d-flex flex-column">
+                             
+                                <h2 class="card-title text-left"><%= item.name %> <em> R$<%= item.price %></em></h2>
+                                <p class="card-text text-left"><%= item.description %></p>
+                                 <% if current_user.present?%>
                                   <%if current_user.cart%>
                                         <%= simple_form_for [current_user.cart, CartItem.new], wrapper: :inline_form, html: {class: 'form-inline'} do |t| %>
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
-                                          <div class="row mb-3">
-                                            <div class="col-6 d-flex justify-content-end text-center">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 70px', value: 1}%>
+                                          <div class="row d-flex">
+                                            <div class="ml-3">
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="ml-2">
                                               <%= t.submit "Add", class: "btn btn-outline-success"%>
                                             </div>
                                           </div>
@@ -228,11 +231,12 @@
                                                 Before order, choose a table !
                                         </button>
                                   <% end %>
+                            
+                              
                                 <% end %>
-                              </div>
+                             
                             </div>
-                        </div>
-                </div>
+                    </div>
               <% end %>
             <% end %>
           </div>

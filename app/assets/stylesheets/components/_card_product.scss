@@ -70,6 +70,18 @@
     box-shadow: 0 5px 1px rgba(248,142,124,0.7);
 }
 
+#btn_btn {
+  color: goldenrod !important;
+  font-weight: bold !important;
+}
+
+.title_menu h1 {
+  color: goldenrod;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .plate {
     width: 80px;
     height: 80px;
@@ -87,7 +99,7 @@ label.float.optional {
 .plate img {
     position: relative;
     border-radius: 5%;
-    margin: 15px 0 0 15px ;
+    margin: 15px ;
     background-color: rgba(0,0,0,0.05);
     border: 1px solid rgba(0,0,0,0.1);
 }
@@ -107,8 +119,30 @@ label.float.optional {
 }
 
 .card-title {
-  font-size: 16px;
-  font-weight: bold;;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.card-group {
+  position: relative;
+  width: 400px;
+  height: 150px;
+}
+
+.card-description {
+  position: absolute;
+  margin: 15px;
+  left: 140px;
+}
+
+.card-picture {
+  position: absolute;
+  left: 0;
 }
 
 .vgr-cards {

@@ -1,23 +1,23 @@
 .footer {
   font-family: Roboto;
   font-weight: 800;
-  position: fixed;
-  bottom: 0;
   height: 50px;
-  width: 90%;
+  width: 60%;
   background-color: #FFC828;
   border-radius: 8px;
   color: white;
   text-align: center;
-  padding-top: 8px;
   text-decoration: none;
-  margin: 5%;
+  margin: auto;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footer h5 {
   color: black;
 }
 .footer-white {
-  height: 80px;
+  height: 10px;
   background-color: white;
 }
