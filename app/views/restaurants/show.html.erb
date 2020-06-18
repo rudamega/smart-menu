@@ -1,5 +1,8 @@
+<% if @restaurant.photo.attached? %>
+<div class="welcome-banner" style="background-image: url('<%= @restaurant.photo %>')">  </div>
+<% else %>
 <div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">  </div>
-
+<% end %>
 <div>
   <%= render 'items/index', items: @restaurant.items %>
 

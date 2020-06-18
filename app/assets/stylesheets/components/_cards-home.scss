@@ -37,7 +37,13 @@
 
 .card-home .card-home-infos {
   padding: 16px;
+  text-decoration:none !important;
 }
+
+.card-home .card-home-infos :hover{
+  text-decoration:none !important;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
