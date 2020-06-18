@@ -111,6 +111,22 @@ label.float.optional {
   font-weight: bold;;
 }
 
+.card-group {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+.card-description {
+  position: absolute;
+  right: 0;
+}
+
+.card-picture {
+  position: absolute;
+  left: 0;
+}
+
 .vgr-cards {
   .card {
     display: flex;
