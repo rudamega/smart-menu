@@ -2,13 +2,27 @@
   justify-content: space-between;
   background: #FFC828;
 }
-
+.navbar-nav {
+  flex-direction: row !important;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 100%;
+  position: absolute;
+  right: 74px;
+  top: 13px;
+}
+
+.navbar h2 img {
+  position: absolute;
+  right: 74px;
+  top: 15px;
 }
 
 #navbar {

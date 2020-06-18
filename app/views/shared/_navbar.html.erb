@@ -1,37 +1,20 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex justify-content-between mb-3">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex justify-content-between">
   <%= link_to root_path, class: "navbar-brand" do %>
-   <span>Smart Menu</span>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item mr-3">
-           <%if current_user.cart%>
-             <%=link_to cart_path(current_user.cart) do %>
-  <div class="nav-link"><h4 class="glyphicon glyphicon-shopping-cart text-center"> </h4></div>
+    <span>Smart Menu</span>
   <% end %>
+      <% if user_signed_in? %>
+           <%if current_user.cart%>
+           <%=link_to cart_path(current_user.cart) do %>
+               <h2><%=cl_image_tag("waiter_lmexhv", height: 30, width: 30, crop: :fill)%></h2>
+           <% end %>
             <%end%>
-        </li>
-
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/dpjghjtp1/image/upload/v1590861380/ptbzhlcdphdr5ske3le74oifp5ab.png", height: 50, width: 50, crop: :fill, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Restaurants", my_restaurant_path, class: "dropdown-item" %>
             <%#= link_to "Service", carts_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-        </li>
       <% else %>
-        <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
       <% end %>
-    </ul>
-  </div>
-</div>
+    </div>

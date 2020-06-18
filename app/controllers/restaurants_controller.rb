@@ -18,6 +18,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @carts = Cart.where(user: current_user)
     @carts = @carts.first
+    @total = current_user.cart.cart_items.where(status: "added").map {|x| x.quantity}.sum
+    @total = @total.to_i
   end
 
   def new
