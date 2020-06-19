@@ -5,13 +5,15 @@
       <%= image_tag "logo.png", class: "image-home" %>
       <% end %>
       </div>
-
-      <div class= "text-center" >
+  <% if !user_signed_in? %>
+    <div class= "text-center" >
       <%= link_to 'Log in', new_user_session_path, class: "button-white mb-4" %>
       </div>
+  <% end %>
+
 
       <div class= "text-center" >
       <%= link_to 'Find a restaurant', restaurants_path, class: "button-white" %>
       </div>
-   </div>   
+   </div>
 </body>
