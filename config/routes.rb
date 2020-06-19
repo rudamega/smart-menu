@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :new, :create]
   end
   get 'checkout', to: 'carts#checkout'
+  get 'rating', to: 'carts#rating'
 
 
   devise_for :users

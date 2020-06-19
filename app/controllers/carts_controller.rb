@@ -21,6 +21,10 @@ class CartsController < ApplicationController
 
   end
 
+  def rating
+
+  end
+
   def my_services
     @restaurant = params[:restaurant_id]
     @restaurant = @restaurant.to_i
