@@ -6,7 +6,7 @@
       <%= t.input :address%>
       <%= t.input :phone%>
       <%# como pasar o array de categorias? %>
-      <%= t.input :category, collection: ["chinese", "brasilian", "italian", "japanese", "french", "peruvian", "fastfood", "burger", "pizza", "asian"]%>
+      <%= t.input :category, collection: ["Chinese", "Brasilian", "Italian", "Japanese", "French", "Peruvian", "Fastfood", "Burger", "Pizza", "Asian"]%>
        <%= t.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <%= t.submit%>
     <% end %>
