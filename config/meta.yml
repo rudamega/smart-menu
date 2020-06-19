@@ -1,0 +1,5 @@
+meta_product_name: "Smart Menu"
+meta_title: "Your phone as your personal waiter."
+meta_description: "Now you can use your phone as you waiter on your favorite restaurant."
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
