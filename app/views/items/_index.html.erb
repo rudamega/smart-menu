@@ -40,7 +40,7 @@
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
                                           <div class="row d-flex">
                                             <div class="ml-3">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1, min:1, max:9}%>
                                             </div>
 
                                             <div class="col-6">
@@ -100,7 +100,7 @@
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
                                           <div class="row d-flex">
                                             <div class="ml-3">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1, min:1, max:9}%>
                                             </div>
                                             <div class="ml-2">
                                               <%= t.submit "Add", class: "btn btn-outline-success"%>
@@ -160,7 +160,7 @@
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
                                           <div class="row d-flex">
                                             <div class="ml-3">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1, min:1, max:9}%>
                                             </div>
                                             <div class="ml-2">
                                               <%= t.submit "Add", class: "btn btn-outline-success"%>
@@ -219,7 +219,7 @@
                                           <%= t.input :item_id, input_html: {value: item.id}, as: :hidden%>
                                           <div class="row d-flex">
                                             <div class="ml-3">
-                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1}%>
+                                              <%= t.input :quantity, :input_html => {:style=> 'width: 55px', value: 1, min:1, max:9}%>
                                             </div>
                                             <div class="ml-2">
                                               <%= t.submit "Add", class: "btn btn-outline-success"%>
