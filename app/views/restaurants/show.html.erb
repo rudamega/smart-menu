@@ -1,16 +1,18 @@
+<% if @restaurant.photo.attached? %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),  url('<%= cl_image_path @restaurant.photo.key %>');">
   <div class="container">
     <h1></h1>
   </div>
 </div>
-
-
-
-	<!--<div class="welcome-banner" style="background-image: url('<%= cl_image_path @restaurant.photo %> ')">
-  <div class="welcome-inside">
-    <%= image_tag @restaurant.photo, height: 120, width: 300, crop: :scale_down%>
+<%else%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),  url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg');">
+  <div class="container">
+    <h1></h1>
   </div>
-</div>-->
+</div>
+<% end %>
+
+
 
 <div>
   <%= render 'items/index', items: @restaurant.items %>
