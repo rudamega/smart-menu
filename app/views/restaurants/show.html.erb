@@ -1,8 +1,16 @@
-<div class="welcome-banner" style="background-image: url('https://res.cloudinary.com/dpjghjtp1/image/upload/v1591742887/nik-owens-40OJLYVWeeM-unsplash_mjrgxq.jpg')">
-  <div class="welcome-inside">
-    <%= image_tag "https://res.cloudinary.com/dpjghjtp1/image/upload/v1590861380/ptbzhlcdphdr5ske3le74oifp5ab.png", height: 120, width: 120, crop: :fill%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),  url('<%= cl_image_path @restaurant.photo.key %>');">
+  <div class="container">
+    <h1></h1>
   </div>
 </div>
+
+
+
+	<!--<div class="welcome-banner" style="background-image: url('<%= cl_image_path @restaurant.photo %> ')">
+  <div class="welcome-inside">
+    <%= image_tag @restaurant.photo, height: 120, width: 300, crop: :scale_down%>
+  </div>
+</div>-->
 
 <div>
   <%= render 'items/index', items: @restaurant.items %>
