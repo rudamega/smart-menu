@@ -34,7 +34,7 @@
 <% if @carts %>
    <%=link_to cart_path(@carts) do %>
 
-  <div class="footer"><h3><%#=cl_image_tag("restaurant-table-and-chairs_r6cwhk", height: 30, width: 30, crop: :fill)%> Items: <%= @total%> / CONFIRM</h3></div>
+  <div class="footer"><%#=cl_image_tag("restaurant-table-and-chairs_r6cwhk", height: 30, width: 30, crop: :fill)%> Items: <%= @total%> / CONFIRM</div>
   <% end %>
   <% else %>
   <button type="button" class="footer" data-toggle="modal" data-target="#choosetable">
