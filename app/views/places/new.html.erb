@@ -1,2 +1,11 @@
 <h1>Places#new</h1>
-<p>Find me in app/views/places/new.html.erb</p>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h3>Create new - Items</h3>
+    <%= simple_form_for [@restaurant, @place] do |t| %>
+      <%= t.input :name%>
+      <%= t.submit%>
+    <% end %>
+    <%= link_to 'Back', restaurant_path(@restaurant), class: "btn btn-outline-secondary" %>
+  </div>
+</div>

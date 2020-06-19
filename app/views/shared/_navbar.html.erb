@@ -5,7 +5,7 @@
       <% if user_signed_in? %>
         <%if current_user.cart%>
           <%=link_to cart_path(current_user.cart) do %>
-            <h2><%=cl_image_tag("waiter_lmexhv", height: 30, width: 30, crop: :fill)%></h2>
+            <h2><%=image_tag("waiter.png", height: 30, width: 30, crop: :fill)%></h2>
           <% end %>
         <%end%>
       <% if current_user.photo.attached? %>
